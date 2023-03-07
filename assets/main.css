@@ -1,0 +1,263 @@
+* {
+  padding: 0px;
+  margin: 0px;
+  /* dit zorgt ervoor dat alles standaard zonder padding en margin is */
+}
+
+nav ul {
+  list-style-type: none; /*zogt ervoor dat het er niet uit ziet als een list*/
+  overflow: hidden;
+  background-color: #fff;
+  height: 55px;
+  /* styling voor de items in de navbar */
+}
+
+nav li {
+  float: left;
+  /* zorgt ervoor dat alle list itms in de nav aan de linker kant komen staan */
+}
+.logo {
+  width: 200px;
+  text-align: center;
+  line-height: 55px;
+  background-color: #e40808;
+  color: #fff;
+  font-family: "Sofia", sans-serif;
+  /* Een simpel logo voor de navbar */
+}
+
+nav li a {
+  display: block; /* maakt van het item een rechthoek*/
+  color: black;
+  text-align: center;
+  padding: 20px 30px;
+  text-decoration: none;
+}
+
+nav li :hover {
+  color: #fff;
+  background-color: rgb(17, 17, 17);
+  transition: 1s;
+  /* verranderd de achtergrond kleur van een list item als je er met je muis overheen gaat ìn een duur van een seconde */
+}
+
+.login,
+.login a {
+  float: right;
+  background-color: black;
+  color: #fff;
+}
+
+.login :hover {
+  background-color: #e40808;
+  transition: 1s;
+}
+
+#active {
+  background-color: rgba(255, 217, 0, 0.785);
+}
+
+.background {
+  height: 80vh;
+
+  background-image: -webkit-linear-gradient(
+      bottom,
+      rgba(0, 0, 0, 0),
+      rgba(0, 0, 0, 0)
+    ),
+    url(../assets/images/burger.jpg);
+  background-image: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)),
+    url(../assets/images/burger.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.name {
+  font-family: "Lobster", cursive;
+  color: #fff;
+  line-height: 250px;
+  height: 250px;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.buttons {
+  line-height: 250px;
+  height: 250px;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.buttons button,
+.buttons2 button {
+  width: 50%;
+  cursor: pointer;
+  text-align: center;
+  line-height: 100px;
+  border: 5px solid #e40808;
+  background-color: #fff;
+}
+
+.buttons button :hover,
+.buttons2 button :hover {
+  transition: 1s;
+  line-height: 120px;
+  background-color: black;
+  color: #fff;
+}
+
+main {
+  font-family: "Arimo", sans-serif;
+  height: 500px;
+  background-color: #fff;
+  border-top: solid;
+  border-bottom: solid;
+  border-width: 5px;
+  border-color: #e40808;
+  text-align: center;
+  display: flex;
+  align-items: center;
+}
+
+.info {
+  width: 5000px;
+}
+
+.wapen {
+  width: 100%;
+  height: 500px;
+
+  background-image: -webkit-linear-gradient(
+      bottom,
+      rgba(0, 0, 0, 0),
+      rgba(0, 0, 0, 0)
+    ),
+    url(../assets/images/Kranenburg.png);
+  background-image: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)),
+    url(../assets/images/Kranenburg.png);
+  background-size: 350px;
+  background-position: left;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-color: tomato;
+}
+
+main hr {
+  border-top: 1px dashed #e40808;
+}
+
+footer {
+  background-color: #fff;
+  border-top: solid;
+  border-width: 5px;
+  border-color: #e40808;
+  height: 100%;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Fira Sans", sans-serif;
+}
+
+footer div {
+  height: 100%;
+  width: 100%;
+  list-style-type: none; /*zogt ervoor dat het er niet uit ziet als een list*/
+  overflow: hidden;
+}
+
+.background2 {
+  height: 100%;
+
+  background-image: -webkit-linear-gradient(
+      bottom,
+      rgba(0, 0, 0, 0),
+      rgba(0, 0, 0, 0)
+    ),
+    url(../assets/images/friet.jpg);
+  background-image: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)),
+    url(../assets/images/friet.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  text-align: center;
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.name2 {
+  margin-top: 10%;
+  font-family: "Lobster", cursive;
+  color: #fff;
+  line-height: 250px;
+  height: 250px;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.menu-container {
+  margin-top: 10%;
+  height: 100%;
+  width: 80%;
+  background-color: #fff;
+  margin-bottom: 10%;
+  border: solid;
+  border-width: 5px;
+  border-color: #e40808;
+}
+
+.menu {
+  margin-inline: 10%;
+}
+
+.menu h1 {
+  font-family: "Lobster", cursive;
+  font-size: 50px;
+}
+
+.menu hr {
+  border: 3px solid #e40808;
+}
+
+.buttons2 {
+  line-height: 250px;
+  height: 250px;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  margin-bottom: 10%;
+}
+
+.background3 {
+  height: 100%;
+
+  background-image: -webkit-linear-gradient(
+      bottom,
+      rgba(0, 0, 0, 0.1),
+      rgba(0, 0, 0, 0.1)
+    ),
+    url(../assets/images/empty.jpg);
+  background-image: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.1),
+      rgba(0, 0, 0, 0.1)
+    ),
+    url(../assets/images/empty.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  text-align: center;
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
