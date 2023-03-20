@@ -1,3 +1,5 @@
+/* link naaar uitleg videos davor https://www.youtube.com/watch?v=sA-HJA3x5EA&list=PLt7OQG6rAE6niyUf7eNoQWAAsbIrbv6cE */
+
 * {
   padding: 0px;
   margin: 0px;
@@ -107,14 +109,12 @@ nav li :hover {
 .buttons button :hover,
 .buttons2 button :hover {
   transition: 1s;
-  line-height: 120px;
   background-color: black;
   color: #fff;
 }
 
 main {
   font-family: "Arimo", sans-serif;
-  height: 500px;
   background-color: #fff;
   border-top: solid;
   border-bottom: solid;
@@ -126,11 +126,11 @@ main {
 }
 
 .info {
-  width: 5000px;
+  width: 100%;
 }
 
 .wapen {
-  width: 100%;
+  width: 460px;
   height: 500px;
 
   background-image: -webkit-linear-gradient(
@@ -152,12 +152,51 @@ main hr {
   border-top: 1px dashed #e40808;
 }
 
+@media screen and (max-width: 1030px) {
+  .info {
+    width: 100%;
+  }
+  .wapen {
+    width: 500px;
+    background-size: 300px;
+    background-position: left;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+}
+
+@media screen and (max-width: 430px) {
+  main {
+    flex-direction: column;
+    height: 300px;
+  }
+
+  .info {
+    width: 100%;
+  }
+  .wapen {
+    height: 120px;
+    width: 100%;
+    background-size: 100px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: local;
+  }
+
+  footer {
+    flex-direction: column;
+  }
+
+  .buttons button {
+    width: 80%;
+  }
+}
+
 footer {
   background-color: #fff;
   border-top: solid;
   border-width: 5px;
   border-color: #e40808;
-  height: 100%;
   text-align: center;
   display: flex;
   align-items: center;
@@ -166,15 +205,12 @@ footer {
 }
 
 footer div {
-  height: 100%;
   width: 100%;
   list-style-type: none; /*zogt ervoor dat het er niet uit ziet als een list*/
   overflow: hidden;
 }
 
 .background2 {
-  height: 100%;
-
   background-image: -webkit-linear-gradient(
       bottom,
       rgba(0, 0, 0, 0),
@@ -206,7 +242,6 @@ footer div {
 
 .menu-container {
   margin-top: 10%;
-  height: 100%;
   width: 80%;
   background-color: #fff;
   margin-bottom: 10%;
@@ -237,8 +272,6 @@ footer div {
 }
 
 .background3 {
-  height: 100%;
-
   background-image: -webkit-linear-gradient(
       bottom,
       rgba(0, 0, 0, 0.1),
@@ -260,4 +293,39 @@ footer div {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.login-panel {
+  text-align: center;
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-inline: 10%;
+}
+
+.warning {
+  margin: 25px;
+  align-self: center;
+  width: 50%;
+  background-color: #ff00008a;
+}
+
+table {
+  text-align: start;
+}
+
+th h2 {
+  font-family: "Lobster", cursive;
+  font-size: 40px;
+  height: fit-content;
+  width: 50vh;
+  padding: 2%;
+  color: #fff;
+  background-color: #e40808;
+}
+
+td {
+  font-family: "Arimo", sans-serif;
+  font-size: 25px;
 }

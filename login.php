@@ -1,3 +1,15 @@
+<?php
+    if(isset($_POST['email']) && isset($_POST['password'])){
+        //var_dump($_POST);
+
+        if($_POST['email'] == "1197607@student.roc-nijmegen.nl" && 
+        $_POST['password'] == "12345"
+        ){
+            echo 'hello admin';
+        }
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,55 +33,52 @@
 </head>
 <body>
     <header>
-        <nav>
-            <ul>
-                <li>
-                    <div class="logo">
-                        <H1> Kranenburger </H1>
-                    </div>  
-                </li>
-                <li id="active"><a href="index.php">Home</a></li>
-                <li><a href="menu.php">Menu</a></li>
-
-                <li class="login"><a href="login.php">Login</a></li>
-            </ul>
-        </nav>
+    <?php
+include_once('helpers/nav-klant.php');
+?>
     </header>
     <div class="background3">
         <h1 class="name2">Login</h1>
 
         <div class="menu-container">
-            <div class="menu">
+            <div class="login-panel">
 
                 <br>
                 <h2>Login</h2>
                 <br>
+                <div class="warning">
+                    <?php
+                    if($_POST['email'] == ""){
+                        echo 'email can\'t be empty <br>';
+                    }
+                                
+                    if($_POST['password'] == ""){
+                        echo 'password can\'t be empty <br>';
+                    }
+                    
+                    ?>
+                </div>
+                     <?php 
+                    if($_POST['email'] == "1197607@student.roc-nijmegen.nl" && 
+                    $_POST['password'] == "12345"
+                      ){
+                      echo 'hello admin';
+                     }
+                    ?>
+                    <form action="" method="post">
+                        email
+                        <input type="email" name="email" id="" 
+                        placeholder="email">
+                        password
+                        <input type="password" name="password" id="" placeholder="password">
+                        <input type="submit" value="login">
+                    </form>
 
-                <span><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></span>
             </div>
         </div>
     </div>
-    <footer>
-            <span> Cafetaria Kranenburger</span>
-            <div>
-
-                <ul>
-                    <li>
-                        <h3>General info</h3>
-                    </li>
-                    <li><a href="https://github.com/odinVos" target="_blank">Github</a></li>
-                    
-                </ul>
-            </div>
-            <div>
-                <ul>
-                    <li>
-                        <h3>Contact</h3>
-                    </li>
-                    <li><i class="fas fa-envelope"></i><span> 1197607@student.roc-nijmegen.nl</span></li>
-                    <li><i class="fas fa-phone-alt"></i><span> +31 6 00000</span></li>
-                </ul>
-            </div>
-    </footer>
+    <?php
+require_once('helpers/footer.php');
+?>
 </body>
 </html>
