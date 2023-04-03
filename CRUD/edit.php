@@ -1,13 +1,15 @@
 <?php
-include '../helpers/connect.php';
+require_once("../helpers/connect.php");
+if(isset($_SESSION['logged_in'])){
 
 // var_dump($_GET['id']);
-$stmt = $connect->prepare("SELECT * FROM kranenburger.menu_items WHERE id = :id");
+$stmt = $connect->prepare("SELECT * FROM kranenburger.menu_items WHERE Id = :id");
 $stmt->execute(['id' => $_GET['id']]);
 
     $data = $stmt->fetch();
     // var_dump($data);
-    
+    $stmt->bindParam(":id", $_POST['Id']);
+        $stmt->execute();
     
 ?>
 <html>
@@ -32,15 +34,21 @@ $stmt->execute(['id' => $_GET['id']]);
             <h1>Product aanpassen</h1>
             <form action="edit_item.php" method="post" name="edit">
               <h4>Id</h4>
-              <input type="text" name="Id" id="" value=" <?php echo $data ['Id']; ?>"><br />
+              <input type="text" disabled  name="" id="" value="<?php echo $data ['Id']; ?>"><br />
+              <input type="hidden"  name="Id" id="" value="<?php echo $data ['Id']; ?>">
               <h4>Naam</h4>
-              <input type="text" name="Name" id="" value=" <?php echo $data ['Name']; ?>"><br />
+              <input type="text" name="Name" id="" value="<?php echo $data ['Name']; ?>"><br />
               <h4>Prijs</h4>
-              <input type="text" name="Price" id="" value=" <?php echo $data ['Price']; ?>"><br />
+              <input type="text" name="Price" id="" value="<?php echo $data ['Price']; ?>"><br />
               <br>  
               <input class="verzenden" type="submit" value="Aanpassen" id="">
             </form>
         </div>
     </div>
+    <?php
+}else{
+    echo "Error, niemand ingelogt";
+}
+    ?>
 </body>
 </html>

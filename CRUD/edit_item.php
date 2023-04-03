@@ -4,7 +4,7 @@ include '../helpers/connect.php';
         $sql ="UPDATE kranenburger.menu_items SET
         Name = :Name,
         Price = :Price
-        WHERE id = :id";
+        WHERE Id = :id";
         $stmt = $connect->prepare($sql);
         
         $stmt->bindParam(":Name", $_POST['Name']);

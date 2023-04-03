@@ -1,3 +1,6 @@
+<?php
+require_once("helpers/connect.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,7 +25,12 @@
 <body>
 <header>
 <?php
-include_once('helpers/nav-klant.php');
+
+if (isset($_SESSION['logged_in'])){
+    require_once("helpers/nav-admin.php");
+}else {
+    require_once("helpers/nav-klant.php");
+}
 ?>
     </header>
     <div class="background">

@@ -1,13 +1,11 @@
 <?php
-    if(isset($_POST['email']) && isset($_POST['password'])){
-        //var_dump($_POST);
+    require 'helpers/connect.php';
 
-        if($_POST['email'] == "1197607@student.roc-nijmegen.nl" && 
-        $_POST['password'] == "12345"
-        ){
-            echo 'hello admin';
-        }
-    }
+    $sql = "SELECT * FROM kranenburger.users";
+    $stmt = $connect->prepare($sql);
+    $stmt->execute();
+    $result = $stmt->fetchAll();
+
 ?>
 
 <!DOCTYPE html>
@@ -34,7 +32,11 @@
 <body>
     <header>
     <?php
-include_once('helpers/nav-klant.php');
+if (isset($_SESSION['logged_in'])){
+    require_once("helpers/nav-admin.php");
+}else {
+    require_once("helpers/nav-klant.php");
+}
 ?>
     </header>
     <div class="background3">
@@ -59,21 +61,27 @@ include_once('helpers/nav-klant.php');
                     ?>
                 </div>
                      <?php 
-                    if($_POST['email'] == "1197607@student.roc-nijmegen.nl" && 
-                    $_POST['password'] == "12345"
+                     foreach($result as $value)
+                     {
+                        $name=$value['Username'];
+                    if($_POST['email'] == $value['Email'] && 
+                    $_POST['password'] == $value['Password']
                       ){
-                      echo 'hello admin';
+                      $_SESSION ['logged_in'] = true;
+                      $_SESSION ['username'] = $name;
+                      header("location: edit_menu.php");
+                     }                        
                      }
-                    ?>
-                    <form action="" method="post">
-                        email
-                        <input type="email" name="email" id="" 
-                        placeholder="email">
-                        password
-                        <input type="password" name="password" id="" placeholder="password">
-                        <input type="submit" value="login">
-                    </form>
 
+                    ?>
+                   <form action="" method="post">
+                    email
+                    <input type="text" name="email" id="" 
+                    placeholder="email">
+                    password
+                    <input type="password" name="password" id="" placeholder="password">
+                    <input type="submit" value="login">
+                </form>
             </div>
         </div>
     </div>

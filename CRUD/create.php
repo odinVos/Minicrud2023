@@ -1,5 +1,7 @@
 <?php
-include '../helpers/connect.php';
+require_once("../helpers/connect.php");
+if(isset($_SESSION['logged_in'])){
+
 
 if(isset($_POST["Name"])){ 
     $sql = "INSERT INTO kranenburger.menu_items
@@ -51,7 +53,11 @@ header("Location: ../edit_menu.php")
         </div>
     </div>
 
-
+<?php
+}else{
+    echo "Error, niemand ingelogt";
+}
+?>
 
 </body>
 </html>

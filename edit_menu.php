@@ -1,4 +1,6 @@
-
+<?php
+require_once("helpers/connect.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,7 +25,11 @@
 <body>
     <header>
 <?php
-    include_once('helpers/nav-klant.php');
+if (isset($_SESSION['logged_in'])){
+    require_once("helpers/nav-admin.php");
+}else {
+    require_once("helpers/nav-klant.php");
+}
 ?>
     </header>
     <div class="background2">
@@ -39,7 +45,11 @@
                 <hr>
                 <br>
                 <?php
-                require('helpers/edit_menu_db.php');
+                if(isset($_SESSION['logged_in'])){
+                    require('helpers/edit_menu_db.php');
+
+                
+                
                 ?>
                 
                 <a href="CRUD/create.php">
@@ -47,9 +57,14 @@
                 </a>
                 <br>
                 <br>
-                <a href="">
+                <a href="helpers/logout.php">
                    <button class="loguit"> <p>Log uit <i class="fas fa-sign-out-alt"></i></p></button> 
                 </a>
+                <?php
+                }else{
+                    echo "<h2>Error, niemand ingelogt</h2><br>";
+                }
+                ?>
                 
                 
             </div>
