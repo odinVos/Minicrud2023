@@ -40,7 +40,9 @@ $stmt->execute(['id' => $_GET['id']]);
               <input type="text" name="Name" id="" value="<?php echo $data ['Name']; ?>"><br />
               <h4>Prijs</h4>
               <input type="text" name="Price" id="" value="<?php echo $data ['Price']; ?>"><br />
-              <br>  
+              <h4>Beschrijving</h4>
+              <input class="desc" type="text" name="Beschrijving" id="" value="<?php echo $data ['Beschrijving']; ?>"><br/>
+              <br>
               <input class="verzenden" type="submit" value="Aanpassen" id="">
             </form>
         </div>

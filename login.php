@@ -5,7 +5,6 @@
     $stmt = $connect->prepare($sql);
     $stmt->execute();
     $result = $stmt->fetchAll();
-
 ?>
 
 <!DOCTYPE html>
@@ -50,11 +49,11 @@ if (isset($_SESSION['logged_in'])){
                 <br>
                 <div class="warning">
                     <?php
-                    if($_POST['email'] == ""){
+                    if(isset($_POST['email']) && $_POST['email'] == ""){
                         echo 'email can\'t be empty <br>';
                     }
                                 
-                    if($_POST['password'] == ""){
+                    if(isset($_POST['password']) && $_POST['password'] == ""){
                         echo 'password can\'t be empty <br>';
                     }
                     
@@ -64,13 +63,16 @@ if (isset($_SESSION['logged_in'])){
                      foreach($result as $value)
                      {
                         $name=$value['Username'];
-                    if($_POST['email'] == $value['Email'] && 
-                    $_POST['password'] == $value['Password']
-                      ){
-                      $_SESSION ['logged_in'] = true;
-                      $_SESSION ['username'] = $name;
-                      header("location: edit_menu.php");
-                     }                        
+                        if(isset($_POST['email']) && isset($_POST['password'])){
+                            if($_POST['email'] == $value['Email'] && 
+                            $_POST['password'] == $value['Password']
+                            ){
+                                $_SESSION ['logged_in'] = true;
+                                $_SESSION ['username'] = $name;
+                                header("location: edit_menu.php");
+                            } 
+                        }
+                                           
                      }
 
                     ?>

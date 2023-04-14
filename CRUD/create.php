@@ -5,14 +5,15 @@ if(isset($_SESSION['logged_in'])){
 
 if(isset($_POST["Name"])){ 
     $sql = "INSERT INTO kranenburger.menu_items
-    (Name, Price) 
+    (Name, Price, Beschrijving) 
         VALUES 
-    (:Name, :Price)";
+    (:Name, :Price, :Beschrijving)";
 ;
 
 $stmt = $connect->prepare($sql);
 $stmt->bindParam(":Name", $_POST['Name']);
 $stmt->bindParam(":Price", $_POST['Price']);
+$stmt->bindParam(":Beschrijving", $_POST['Beschrijving']);
 $stmt->execute();
 $stmt->debugDumpParams();
 header("Location: ../edit_menu.php")
@@ -44,6 +45,9 @@ header("Location: ../edit_menu.php")
                <input type="text" name="Name" id=""><br/>
                <h4>Prijs</h4>
               <input type="text" name="Price" id=""><br/>
+
+              <h4>Beschrijving</h4>
+              <input class="desc" type="text" name="Beschrijving" id=""><br/>
               <br>
               <input class="verzenden" type="submit" value="Toevoegen" id="">
               

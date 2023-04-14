@@ -15,6 +15,7 @@ nav ul {
 }
 
 nav li {
+  font-family: "Arimo", sans-serif;
   float: left;
   /* zorgt ervoor dat alle list itms in de nav aan de linker kant komen staan */
 }
@@ -53,6 +54,16 @@ nav li :hover {
 .login :hover {
   background-color: #e40808;
   transition: 1s;
+}
+
+.logged-in {
+  width: 200px;
+  text-align: center;
+  line-height: 55px;
+  background-color: #e40808;
+  color: #fff;
+  font-family: "Sofia", sans-serif;
+  float: right;
 }
 
 #active {
@@ -223,6 +234,11 @@ footer div {
   border: 3px solid #e40808;
 }
 
+.test {
+  font-size: large;
+  text-align: center;
+}
+
 .buttons2 {
   line-height: 250px;
   height: 250px;
@@ -331,6 +347,10 @@ td a {
   background-color: green;
   color: #fff;
   cursor: pointer;
+}
+
+.desc {
+  width: 500px;
 }
 
 .verzenden :hover,

@@ -1,5 +1,5 @@
 <?php
-require('connect.php');
+require_once('connect.php');
 $sql = "SELECT * FROM kranenburger.menu_items";
 $stmt = $connect->prepare($sql);
 $stmt->execute();
@@ -20,6 +20,10 @@ foreach($result as $value)
             </td>
             <td>
             <?php  echo $value['Price'];?>
+            </td>
+            <td class="test">
+                <br>
+            <?php  echo $value['Beschrijving'];?>
             </td>
             <td>
                 <a href="CRUD/edit.php?id=<?php echo $value["Id"]; ?>">

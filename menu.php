@@ -37,16 +37,18 @@ require_once("helpers/connect.php");
 
         <div class="menu-container">
             <div class="menu">
-
+                
                 <br>
                 <h1>Cafetaria Kranenburger</h1>
                 <h2>Menu</h2>
                 <br>
                 <hr>
                 <br>
-                <?php
-                require('helpers/menu_db.php');
-                ?>
+                <div>
+                     <?php
+                    require('helpers/menu_db.php');
+                    ?>
+                </div>
                 <br>
                 
             </div>
@@ -54,7 +56,7 @@ require_once("helpers/connect.php");
         <div class="buttons2">
             <a href="index.php">
                 <button>
-                    <h2>Bestel nu <i class="fas fa-chevron-right"></i></h2>
+                    <h2><i class="fas fa-chevron-left"></i> Home </h2>
                 </button>
             </a>
         </div>
