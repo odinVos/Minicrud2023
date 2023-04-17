@@ -46,7 +46,7 @@ if (isset($_SESSION['logged_in'])){
 
                 <br>
                 <h2>Login</h2>
-                <br>
+
                 <div class="warning">
                     <?php
                     if(isset($_POST['email']) && $_POST['email'] == ""){
@@ -57,6 +57,8 @@ if (isset($_SESSION['logged_in'])){
                         echo 'password can\'t be empty <br>';
                     }
                     
+                    
+
                     ?>
                 </div>
                      <?php 
@@ -76,16 +78,17 @@ if (isset($_SESSION['logged_in'])){
                      }
 
                     ?>
-                   <form action="" method="post">
-                    email
+                   <form class="login-form" action="" method="post">
+                    <h4>Email</h4>
                     <input type="text" name="email" id="" 
-                    placeholder="email">
-                    password
-                    <input type="password" name="password" id="" placeholder="password">
-                    <input type="submit" value="login">
+                    placeholder="email"><br/>
+                    <h4>Password</h4>
+                    <input type="password" name="password" id="" placeholder="password"><br/>
+                    <input class="verzenden-login" type="submit" value="login">
                 </form>
             </div>
         </div>
+        
     </div>
     <?php
 require_once('helpers/footer.php');

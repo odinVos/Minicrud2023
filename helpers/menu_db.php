@@ -19,9 +19,9 @@ foreach($result as $value)
             <td>
             <?php  echo $value['Price'];?>
             </td>
-            <td class="test">
+            <td class="beschr">
                 <br>
-            <?php  echo $value['Beschrijving'];?>
+              <?php  echo $value['Beschrijving'];?>
             </td>
         </tr>
     <?php

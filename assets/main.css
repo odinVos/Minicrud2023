@@ -3,21 +3,18 @@
 * {
   padding: 0px;
   margin: 0px;
-  /* dit zorgt ervoor dat alles standaard zonder padding en margin is */
 }
 
 nav ul {
-  list-style-type: none; /*zogt ervoor dat het er niet uit ziet als een list*/
+  list-style-type: none;
   overflow: hidden;
   background-color: #fff;
   height: 55px;
-  /* styling voor de items in de navbar */
 }
 
 nav li {
   font-family: "Arimo", sans-serif;
   float: left;
-  /* zorgt ervoor dat alle list itms in de nav aan de linker kant komen staan */
 }
 .logo {
   width: 200px;
@@ -26,11 +23,10 @@ nav li {
   background-color: #e40808;
   color: #fff;
   font-family: "Sofia", sans-serif;
-  /* Een simpel logo voor de navbar */
 }
 
 nav li a {
-  display: block; /* maakt van het item een rechthoek*/
+  display: block;
   color: black;
   text-align: center;
   padding: 20px 30px;
@@ -41,7 +37,6 @@ nav li :hover {
   color: #fff;
   background-color: rgb(17, 17, 17);
   transition: 1s;
-  /* verranderd de achtergrond kleur van een list item als je er met je muis overheen gaat ìn een duur van een seconde */
 }
 
 .login,
@@ -234,7 +229,7 @@ footer div {
   border: 3px solid #e40808;
 }
 
-.test {
+.beschr {
   font-size: large;
   text-align: center;
 }
@@ -415,6 +410,23 @@ td a {
   display: flex;
   flex-direction: column;
 }
+.login-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.login-form input {
+  height: 25px;
+}
+
+.verzenden-login {
+  border: none;
+  background-color: green;
+  color: #fff;
+  cursor: pointer;
+  margin-bottom: 5%;
+}
 
 @media screen and (max-width: 1030px) {
   .info {
@@ -429,6 +441,10 @@ td a {
   }
   th h2 {
     width: 40vh;
+  }
+
+  .create {
+    width: 100%;
   }
 }
 
@@ -461,5 +477,22 @@ td a {
 
   th h2 {
     width: 20vh;
+  }
+
+  .edit-table tr td {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .create {
+    width: 100%;
+  }
+
+  .desc {
+    width: 100%;
+  }
+
+  .menu h1 {
+    font-size: 25px;
   }
 }

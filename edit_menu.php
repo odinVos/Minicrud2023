@@ -58,7 +58,7 @@ if (isset($_SESSION['logged_in'])){
                 <br>
                 <br>
                 <a href="helpers/logout.php">
-                   <button class="loguit"> <p>Log uit <i class="fas fa-sign-out-alt"></i></p></button> 
+                   <button class="loguit" onclick="return confirm('Weet u zeker dat u wilt uitloggen?');"> <p>Log uit <i class="fas fa-sign-out-alt"></i></p></button> 
                 </a>
                 <?php
                 }else{
