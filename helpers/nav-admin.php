@@ -6,7 +6,7 @@
                     </div>  
                 </li>
                 
-                <li id="active"><a href="index.php">Home</a></li>
+                <li><a href="index.php">Home</a></li>
                 <li><a href="menu.php">Menu</a></li>
                 <li class="login"><a href="edit_menu.php">Menu Editor</a></li>
                 <li class="logged-in">
