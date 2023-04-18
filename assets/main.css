@@ -492,6 +492,11 @@ td a {
     width: 100%;
   }
 
+  tbody {
+    display: flex;
+    flex-direction: column;
+  }
+
   .menu h1 {
     font-size: 25px;
   }
