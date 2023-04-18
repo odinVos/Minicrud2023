@@ -5,6 +5,11 @@
   margin: 0px;
 }
 
+nav {
+  display: flex;
+  flex-direction: column;
+}
+
 nav ul {
   list-style-type: none;
   overflow: hidden;
@@ -59,10 +64,6 @@ nav li :hover {
   color: #fff;
   font-family: "Sofia", sans-serif;
   float: right;
-}
-
-#active {
-  /* background-color: rgba(255, 217, 0, 0.785); */
 }
 
 .background {
@@ -499,5 +500,65 @@ td a {
 
   .menu h1 {
     font-size: 25px;
+  }
+
+  nav {
+    display: flex;
+    flex-direction: column;
+  }
+
+  nav ul {
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+    overflow: hidden;
+    background-color: #fff;
+    height: 100%;
+  }
+
+  nav li {
+    font-family: "Arimo", sans-serif;
+  }
+  .logo {
+    width: 100%;
+    text-align: center;
+    line-height: 55px;
+    background-color: #e40808;
+    color: #fff;
+    font-family: "Sofia", sans-serif;
+  }
+
+  nav li a {
+    display: block;
+    color: black;
+    text-align: center;
+    text-decoration: none;
+  }
+
+  nav li :hover {
+    color: #fff;
+    background-color: rgb(17, 17, 17);
+    transition: 1s;
+  }
+
+  .login,
+  .login a {
+    float: unset;
+    text-align: center;
+    background-color: black;
+    color: #fff;
+  }
+
+  .login :hover {
+    background-color: #e40808;
+    transition: 1s;
+  }
+
+  .logged-in {
+    width: 100%;
+    text-align: center;
+    background-color: #e40808;
+    color: #fff;
+    font-family: "Sofia", sans-serif;
   }
 }

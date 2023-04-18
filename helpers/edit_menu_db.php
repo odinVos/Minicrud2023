@@ -29,8 +29,8 @@ foreach($result as $value)
                 <a href="CRUD/edit.php?id=<?php echo $value["Id"]; ?>">
                  <button class="btn-update"> <p><i class="fas fa-pen"></i> Update</p></button>   
                 </a>
-                <a href="CRUD/delete.php?id=<?php echo $value["Id"]; ?>" id="confirmClickActionElementId">
-                 <button class="btn-delete" onclick="return confirm('Weet u zeker dat u dit product wilt verwijderen?');" > <p><i class="fas fa-trash-alt"></i> Delete</p></button>   
+                <a href="CRUD/delete.php?id=<?php echo $value["Id"]; ?>" onclick="return confirm('Weet u zeker dat u dit product wilt verwijderen?');">
+                 <button class="btn-delete"  > <p><i class="fas fa-trash-alt"></i> Delete</p></button>   
                 </a>
             </td>
         </tr>
