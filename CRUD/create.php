@@ -1,24 +1,29 @@
 <?php
 require_once("../helpers/connect.php");
+$messg = '';
 if(isset($_SESSION['logged_in'])){
 
 
 if(isset($_POST["Name"])){ 
-    $sql = "INSERT INTO kranenburger.menu_items
-    (Name, Price, Beschrijving) 
-        VALUES 
-    (:Name, :Price, :Beschrijving)";
-;
-
-$stmt = $connect->prepare($sql);
-$stmt->bindParam(":Name", $_POST['Name']);
-$stmt->bindParam(":Price", $_POST['Price']);
-$stmt->bindParam(":Beschrijving", $_POST['Beschrijving']);
-$stmt->execute();
-$stmt->debugDumpParams();
-header("Location: ../edit_menu.php")
-
-;}
+    if($_POST["Name"] == "" | $_POST["Price"] == "" | $_POST["Beschrijving"] == ""){
+        $messg = "Er mogen geen velden leeg zijn.";
+    }
+    if($messg == ""){
+        $sql = "INSERT INTO kranenburger.menu_items
+        (Name, Price, Beschrijving) 
+            VALUES 
+        (:Name, :Price, :Beschrijving)";
+    ;
+    
+    $stmt = $connect->prepare($sql);
+    $stmt->bindParam(":Name", $_POST['Name']);
+    $stmt->bindParam(":Price", $_POST['Price']);
+    $stmt->bindParam(":Beschrijving", $_POST['Beschrijving']);
+    $stmt->execute();
+    $stmt->debugDumpParams();
+    header("Location: ../edit_menu.php");
+    }
+}
 ?>
 <html>
 <head>
@@ -41,17 +46,19 @@ header("Location: ../edit_menu.php")
             </div>
                 <h1>Product toevoegen</h1>
             <form action="" method= "post">
-                <h4>Naam</h4>
-               <input type="text" name="Name" id=""><br/>
-               <h4>Prijs</h4>
-              <input type="text" name="Price" id=""><br/>
-
-              <h4>Beschrijving</h4>
-              <input class="desc" type="text" name="Beschrijving" id=""><br/>
-              <br>
-              <input class="verzenden" type="submit" value="Toevoegen" id="">
+                <div class="warning-menu">
+                    <?php echo ($messg == "" ? '' : $messg); ?>
+                </div>
+            <h4>Naam</h4>
+            <input type="text"  name="Name" id=""><br/>
+            <h4>Prijs</h4>
+            <input type="text"  name="Price" id=""><br/>
+            <h4>Beschrijving</h4>
+            <input class="desc"  type="text" name="Beschrijving" id=""><br/>
+            <br>
+            <input class="verzenden" type="submit" value="Toevoegen" id="">
               
-             </form>
+            </form>
                 
             
         </div>

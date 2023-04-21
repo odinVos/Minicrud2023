@@ -1,16 +1,37 @@
 <?php
 require_once("../helpers/connect.php");
+$messg = '';
 if(isset($_SESSION['logged_in'])){
 
 // var_dump($_GET['id']);
-$stmt = $connect->prepare("SELECT * FROM kranenburger.menu_items WHERE Id = :id");
-$stmt->execute(['id' => $_GET['id']]);
-
+    $stmt = $connect->prepare("SELECT * FROM kranenburger.menu_items WHERE Id = :id");
+    $stmt->execute(['id' => $_GET['id']]);
+    
     $data = $stmt->fetch();
     // var_dump($data);
     $stmt->bindParam(":id", $_POST['Id']);
-        $stmt->execute();
+    $stmt->execute();
     
+if(isset($_POST["Id"])){ 
+    if($_POST["Name"] == "" | $_POST["Price"] == "" | $_POST["Beschrijving"] == ""){
+        $messg = "Er mogen geen velden leeg zijn.";
+    }
+    if($messg == ""){
+        $sql ="UPDATE kranenburger.menu_items SET
+        Name = :Name,
+        Price = :Price,
+        Beschrijving = :Beschrijving
+        WHERE Id = :id";
+        $stmt = $connect->prepare($sql);
+        
+        $stmt->bindParam(":Name", $_POST['Name']);
+        $stmt->bindParam(":Price", $_POST['Price']);
+        $stmt->bindParam(":id", $_POST['Id']);
+        $stmt->bindParam(":Beschrijving", $_POST['Beschrijving']);
+        $stmt->execute();
+        header("location: ../edit_menu.php");
+    }
+}
 ?>
 <html>
 <head>
@@ -32,7 +53,10 @@ $stmt->execute(['id' => $_GET['id']]);
                  </a>
             </div>
             <h1>Product aanpassen</h1>
-            <form action="edit_item.php" method="post" name="edit">
+            <form action="" method="post" name="edit">
+                <div class="warning-menu">
+                    <?php echo ($messg == "" ? '' : $messg); ?>
+                </div>
               <h4>Id</h4>
               <input type="text" disabled  name="" id="" value="<?php echo $data ['Id']; ?>"><br />
               <input type="hidden"  name="Id" id="" value="<?php echo $data ['Id']; ?>">
